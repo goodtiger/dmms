@@ -28,13 +28,15 @@
 			</div>
 		</g:if>
 		<g:form action="saveMapping">
-			<g:hiddenField name="tableMappingId" id="tableMappingId" value="${id}" />
+			<g:hiddenField name="tableMappingId" id="tableMappingId"
+				value="${id}" />
 			<table>
 				<thead>
 					<tr>
-						<td>Source Column Name</td>
-						<td>Source Column Remarks</td>
-						<td>Target Column</td>
+						<th>Source Column Name</th>
+						<th>Source Column Remarks</th>
+						<th>Target Column</th>
+						<th>Mapping MEMO</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -46,11 +48,17 @@
 							<td>
 								${sourceColumn.remarks}
 							</td>
-							<td><select name="${sourceColumn.id }" id="${sourceColumn.id }">
-								<g:each in="${targetColumns}" status="j" var="targetColumn">
-									<option value="${targetColumn.id}" >${targetColumn.columnName +":" +targetColumn.remarks}</option>
-								</g:each>
+							<td><select name="${sourceColumn.id }"
+								id="${sourceColumn.id }">
+									<option value="NO">No Mapping</option>
+									<g:each in="${targetColumns}" status="j" var="targetColumn">
+										<option value="${targetColumn.id}">
+											${targetColumn.columnName +":" +targetColumn.remarks}
+										</option>
+									</g:each>
 							</select></td>
+							<td> <g:textField name="${targetColumn.id+"_memo" }" /> 
+							</td>
 						</tr>
 					</g:each>
 					<tr class="even">
