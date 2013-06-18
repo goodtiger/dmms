@@ -21,14 +21,14 @@ class ColumnMappingController {
 
 	def saveMapping(){
 		def tableMapping = TableMapping.get(params.get("tableMappingId").toLong())
-		def sourceColumnIds = params.keySet() as String[]
-		for (int i = 0; i < sourceColumnIds.size(); i++) {
-			def columnId =sourceColumnIds[i]
-			if(columnId.isLong()){
-				def sourceColumn = ColumnInfo.get(columnId.toLong())
-				def targetColumn = ColumnInfo.get(params.get(columnId).toLong())
+		def keySet = params.keySet() as String[]
+		for (int i = 0; i < keySet.size(); i++) {
+			def key =keySet[i]
+			if(key.isLong()){
+				def sourceColumn = ColumnInfo.get(key.toLong())
+				def targetColumn = ColumnInfo.get(params.get(key).toLong())
 				def columnMapping = ColumnMapping.findBySourceColumnIdAndTargetColumnId(sourceColumn.id,targetColumn.id) ?: new ColumnMapping()
-				columnMapping.memo ="AUTO:" +sourceColumn.columnName +"-"+targetColumn.columnName
+				columnMapping.memo = params.get(key+"_memo")  ?: "AUTO:" +sourceColumn.columnName +"-"+targetColumn.columnName
 				columnMapping.sourceColumnId = sourceColumn.id
 				columnMapping.sourceColumnName = sourceColumn.columnName
 				columnMapping.sourceColumnSize = sourceColumn.columnSize

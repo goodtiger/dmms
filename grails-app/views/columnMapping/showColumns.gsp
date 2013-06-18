@@ -50,14 +50,14 @@
 							</td>
 							<td><select name="${sourceColumn.id }"
 								id="${sourceColumn.id }">
-									<option value="NO">No Mapping</option>
+									<option value="NO">No Need Mapping</option>
 									<g:each in="${targetColumns}" status="j" var="targetColumn">
 										<option value="${targetColumn.id}">
 											${targetColumn.columnName +":" +targetColumn.remarks}
 										</option>
 									</g:each>
 							</select></td>
-							<td> <g:textField name="${targetColumn.id+"_memo" }" /> 
+							<td> <g:textField name="${sourceColumn.id+"_memo" }" /> 
 							</td>
 						</tr>
 					</g:each>
