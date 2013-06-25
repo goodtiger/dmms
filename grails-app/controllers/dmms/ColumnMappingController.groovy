@@ -24,7 +24,7 @@ class ColumnMappingController {
 		def keySet = params.keySet() as String[]
 		for (int i = 0; i < keySet.size(); i++) {
 			def key =keySet[i]
-			if(key.isLong()){
+			if(key.isLong() && params.get(key).isLong()){
 				def sourceColumn = ColumnInfo.get(key.toLong())
 				def targetColumn = ColumnInfo.get(params.get(key).toLong())
 				def columnMapping = ColumnMapping.findBySourceColumnIdAndTargetColumnId(sourceColumn.id,targetColumn.id) ?: new ColumnMapping()
