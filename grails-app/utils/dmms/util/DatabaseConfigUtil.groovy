@@ -13,6 +13,8 @@ import dmms.dataobject.TableMetaData;
  *
  */
 class DatabaseConfigUtil {
+	
+	def static final  DEFAULT_BEANS_DATABASECONFIG_NAME ="Default Beans' Databaseconfig"
 
 	def static FILTE_TABLES = [
 		"DUAL",

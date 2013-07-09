@@ -2,6 +2,9 @@
 beans = {
 
 	databaseConnectService(dmms.DatabaseConnectService){
+
 	}
 	tableInfoService(dmms.TableInfoService){ databaseConnectService=ref("databaseConnectService") }
+
+	beanInfoService(dmms.BeanInfoService){ grailsApplication = ref('grailsApplication') }
 }

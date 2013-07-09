@@ -12,7 +12,7 @@ class DatabaseConfig {
 	
 	static constraints = {
 		name blank:false
-		type blank:false , inList:["oracle", "mysql"]
+		type blank:false , inList:["oracle", "mysql" ,"beans"]
 		url blank:false
 		username blank:false
 		password blank:false

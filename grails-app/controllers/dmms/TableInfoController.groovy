@@ -14,6 +14,11 @@ class TableInfoController {
         params.max = Math.min(max ?: 10, 100)
         [tableInfoInstanceList: TableInfo.list(params), tableInfoInstanceTotal: TableInfo.count()]
     }
+	
+	def export(Long id){
+		def headers = ['Name', 'Description', 'Valid Till', 'Product Number', 'Price']
+		def withProperties = ['name', 'description', 'validTill', 'productNumber', 'price.value']
+	}
 
     def create() {
         [tableInfoInstance: new TableInfo(params)]

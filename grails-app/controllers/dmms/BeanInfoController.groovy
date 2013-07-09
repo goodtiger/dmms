@@ -6,10 +6,12 @@ class BeanInfoController {
 
 	static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
+	def beanInfoService
 
 	def save2Table(Long id){
 		def beanInfo = BeanInfo.get(id)
-		redirect(action:"index")
+		def table = beanInfoService.createTableFromBean(beanInfo.name)
+		redirect(controller :"TableInfo",action:"show",id:table.id)
 	}
 	def index() {
 		redirect(action: "list", params: params)
