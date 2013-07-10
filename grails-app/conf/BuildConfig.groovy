@@ -68,6 +68,6 @@ grails.project.dependency.resolution = {
 
         compile ':cache:1.0.1'
 		//compile ":elasticsearch:0.17.8.1"
-		//compile ":searchable:0.6.4"
+		compile ":searchable:0.6.4"
     }
 }
